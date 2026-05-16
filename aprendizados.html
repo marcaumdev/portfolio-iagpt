@@ -1,0 +1,55 @@
+<!-- aprendizados.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendizados com IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Meu Portfólio</h1>
+
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="aprendizados.html">Aprendizados com IA</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+            </ul>
+
+            <button type="button" onclick="alterarTema()">Alterar tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Aprendizados com IA</h2>
+            <p>Nesta página, registro dúvidas de programação que estudei com apoio de inteligência artificial generativa.</p>
+            
+            <p id="contadorAprendizados"></p>
+            
+            <div class="filtros">
+                <button onclick="filtrarAprendizado('Todos')">Todos</button>
+                <button onclick="filtrarAprendizado('HTML')">HTML</button>
+                <button onclick="filtrarAprendizado('CSS')">CSS</button>
+                <button onclick="filtrarAprendizado('JavaScript')">JavaScript</button>
+            </div>
+            
+            <button onclick="mostrarOcultarAprendizados()" id="botaoAprendizados">
+                Ocultar aprendizados
+            </button>
+            <div id="listaAprendizados" class="cards-aprendizados"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados ao Marcos</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,74 +1,80 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Marcos</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav>
             <h1>Meu portfolio</h1>
             <ul>
-                <li><a href="#sobre">Sobre mim</a></li>
-                <li><a href="#tecnologias">Tecnologias</a></li>
-                <li><a href="">Projetos</a></li>
-                <li><a href="">Contatos</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="aprendizados.html">Aprendizados com IA</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
             </ul>
+            <button type="button" onclick="alterarTema()">Alterar tema</button>
         </nav>
     </header>
+
     <main>
         <section class="banner">
+            <img class="foto-perfil" src="img/perfil.jpg" alt="Foto de perfil">
             <h2>Olá, eu sou Marcos</h2>
             <p>Estou aprendendo desevolvimento web e criando meu primeiro portifolio</p>
-            <button 
-            type="button" 
-            onclick={alterarTexto()} 
-            id="botaoMensagem">
-            Clique para ver uma mensagem</button>
+            <button type="button" onclick="alterarTexto()" id="botaoMensagem">
+                Clique para ver uma mensagem
+            </button>
             <p id="mensagem"></p>
         </section>
+
         <section id="sobre">
             <h2>Sobre mim</h2>
             <p>Sou estudante de tecnologia e estou desenvolvendo minhas habilidades em programação</p>
         </section>
+
         <section id="tecnologias">
             <h2>Tecnologias que estou aprendendo</h2>
+            <p id="tecnologiaSelecionada"></p>
+
             <div class="cards">
-                <article class="card">
+                <article onclick="mostrarTecnologia('HTML')" class="card">
+                    <img class="icone-tecnologia"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1280px-HTML5_logo_and_wordmark.svg.png"
+                        alt="ícone do HTML">
                     <h3>HTML</h3>
                     <p>Utilizado para estruturar o conteúdo das páginas</p>
                 </article>
 
-                <article class="card">
+                <article onclick="mostrarTecnologia('CSS')" class="card">
+                    <img class="icone-tecnologia"
+                        src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg"
+                        alt="ícone do CSS">
                     <h3>CSS</h3>
                     <p>Utilizado para estilizar e organizar o visual das páginas</p>
                 </article>
 
-                <article class="card">
+                <article onclick="mostrarTecnologia('JavaScript')" class="card">
+                    <img class="icone-tecnologia"
+                        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                        alt="ícone do JavaScript">
                     <h3>JavaScript</h3>
                     <p>Utilizado para adicionar interatividade nas páginas</p>
                 </article>
             </div>
         </section>
-        <section id="projetos">
-            <h2>Projetos</h2>
-
-            <article class="projeto">
-                <h3>Meu primeiro portfólio</h3>
-                <p>Projeto desenvolvido na primeira aula do curso, utilizando HTML, CSS e JavaScript</p>
-            </article>
-        </section>
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Linkedin: <a href="https://www.linkedin.com/in/marcaumdev/" target="_blank">Meu LinkedIn</a></p>
-        </section>
     </main>
+
     <footer>
         <p>Todos os diretos reservados ao Marcos</p>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
