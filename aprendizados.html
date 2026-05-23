@@ -29,6 +29,29 @@
             <h2>Aprendizados com IA</h2>
             <p>Nesta página, registro dúvidas de programação que estudei com apoio de inteligência artificial generativa.</p>
             
+            <form class="form-aprendizado" onsubmit="return adicionarAprendizado(event)">
+                <h3>Adicionar novo aprendizado</h3>
+
+                <label for="tema">Tema</label>
+                <select id="tema">
+                    <option value="">Selecione</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+
+                <label for="pergunta">Pergunta</label>
+                <input type="text" id="pergunta" placeholder="Digite sua dúvida">
+
+                <label for="resposta">Reposta resumida</label>
+                <textarea id="resposta" placeholder="Resumo da reposta da IA"></textarea>
+
+                <label for="entendimento">O que eu entendi</label>
+                <textarea id="entendimento" placeholder="Explique com as suas palavras"></textarea>
+
+                <button type="submit">Adicionar Aprendizado</button>
+            </form>
+
             <p id="contadorAprendizados"></p>
             
             <div class="filtros">

@@ -4,7 +4,7 @@ const aprendizados = [
     {
         tema: 'HTML',
         pergunta: 'Qual é a diferença entre id e class?',
-        reposta: 'O id identifica um único elemento. A class pode ser usada em vários elementos',
+        resposta: 'O id identifica um único elemento. A class pode ser usada em vários elementos',
         entendimento: 'Entendi que uso id para algo específico e class para repetir estilos'
     },
     {
@@ -53,17 +53,17 @@ window.onload = function () {
 
 }
 
-function renderizarAprendizados(lista){
+function renderizarAprendizados(lista) {
     const listaAprendizados = document.getElementById("listaAprendizados")
     const contadorAprendizados = document.getElementById("contadorAprendizados")
 
-    if(!listaAprendizados || !contadorAprendizados){
+    if (!listaAprendizados || !contadorAprendizados) {
         return;
     }
 
     listaAprendizados.innerHTML = "";
 
-    for(let cont = 0; cont < lista.length; cont++){
+    for (let cont = 0; cont < lista.length; cont++) {
         listaAprendizados.innerHTML += `
         <article class="aprendizado">
             <span>${lista[cont].tema}</span>
@@ -71,10 +71,75 @@ function renderizarAprendizados(lista){
             <p><strong>Reposta:</strong> ${lista[cont].resposta}</p>
             <p><strong>O que entendi:</strong> ${lista[cont].entendimento}</p>
         </article>
-        ` 
+        `
     }
 
     contadorAprendizados.textContent = "Total de Aprendizados: " + lista.length
 }
 
 renderizarAprendizados(aprendizados)
+
+function filtrarAprendizado(tema) {
+    if (tema == "Todos") {
+        renderizarAprendizados(aprendizados);
+        return;
+    }
+    else {
+        const filtrados = aprendizados.filter(function (item) {
+            return item.tema == tema;
+        })
+
+        renderizarAprendizados(filtrados);
+    }
+}
+
+function mostrarOcultarAprendizados() {
+    const listaAprendizados = document.getElementById("listaAprendizados")
+    const botaoAprendizados = document.getElementById("botaoAprendizados")
+
+    listaAprendizados.classList.toggle("oculto")
+
+    if(listaAprendizados.classList.contains("oculto")){
+        botaoAprendizados.textContent = "Mostrar Aprendizados"
+    }
+    else{
+        botaoAprendizados.textContent = "Ocultar Aprendizados"
+    }
+}
+
+function adicionarAprendizado(evento){
+    evento.preventDefault()
+
+    const campoTema = document.getElementById("tema")
+    const campoPergunta = document.getElementById("pergunta")
+    const campoResposta = document.getElementById("resposta")
+    const campoEntendimento = document.getElementById("entendimento")
+
+    if(
+        campoTema.value == "" ||
+        campoPergunta.value == "" ||
+        campoResposta.value == "" ||
+        campoEntendimento.value == ""
+    ) {
+        alert("Preencha todos os campos antes de adicionar.")
+        return false;
+    }
+
+    const novoAprendizado = {
+        tema: campoTema.value,
+        pergunta: campoPergunta.value,
+        resposta: campoResposta.value,
+        entendimento: campoEntendimento.value
+    }
+
+    aprendizados.push(novoAprendizado)
+
+    renderizarAprendizados(aprendizados)
+
+    campoTema.value = ""
+    campoPergunta.value = ""
+    campoResposta.value = ""
+    campoEntendimento.value = ""
+
+    return false
+}
